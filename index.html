@@ -41,7 +41,31 @@ body{
 }
 
 /* HEADER */
-.header{
+.header{position:relative;
+  text-align:center;
+  margin-bottom:28px;
+}
+.header-badge{
+  display:inline-block;
+  background:var(--teal);
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  padding:5px 18px;
+  border-radius:20px;
+  margin-bottom:16px;
+}
+.header h1{
+  font-family:'DM Sans',sans-serif;
+  font-size:28px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.2;
+  margin-bottom:6px;
+}
+.header h1 span{color:var(--teal);}
+.header{position:relative;
   text-align:center;
   margin-bottom:28px;
 }
@@ -66,14 +90,10 @@ body{
 }
 .header h1 span{color:var(--teal);}
 .header-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
+  display:block;
   margin-bottom:6px;
 }
 .header-qr{
-  flex-shrink:0;
   width:72px;
   height:72px;
   border:1px solid var(--border);
@@ -82,9 +102,10 @@ body{
   background:#fff;
 }
 .header-qr img{width:100%;height:100%;display:block;}
-.header-text{text-align:left;}
+.header-text{text-align:center;}
 .header-text h1{margin-bottom:2px;}
 .header-qr-label{font-size:9px;color:var(--hint);text-align:center;margin-top:2px;}
+.header-qr-wrap{position:absolute;top:0;right:0;}
 
 .header-date{
   font-size:14px;
@@ -285,14 +306,14 @@ body{
   <!-- HEADER -->
   <div class="header">
     <div class="header-badge">Kiinnovator User Session 2026</div>
+    <div class="header-qr-wrap">
+      <div class="header-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fuezato-mokkou.github.io%2Fkiinnovator-program%2F"></div>
+      <div class="header-qr-label">QRで開く</div>
+    </div>
     <div class="header-row">
       <div class="header-text">
-        <h1>&#12518;&#12540;&#12470;&#12540;<span>&#12475;&#12483;&#12471;&#12519;&#12531;</span><br>&#12479;&#12452;&#12512;&#12486;&#12540;&#12502;&#12523;</h1>
-        <div class="header-date">2026&#24180;7&#26376;3&#26085;&#65288;&#37329;&#65289;&#12288;&#39321;&#24029;&#30476;</div>
-      </div>
-      <div>
-        <div class="header-qr"><img src="data:image/png;base64,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"></div>
-        <div class="header-qr-label">QR&#12391;&#38283;&#12367;</div>
+        <h1>ユーザー<span>セッション</span><br>タイムテーブル</h1>
+        <div class="header-date">2026年7月3日（金）　香川県</div>
       </div>
     </div>
   </div>
